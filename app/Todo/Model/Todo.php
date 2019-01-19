@@ -27,4 +27,13 @@ class Todo extends Model
     {
         return config('api.paginate.per_page');
     }
+
+    /**
+     * @inheritdoc
+     */
+    protected function serializeDate(\DateTimeInterface $date)
+    {
+        return $date->getTimestamp();
+    }
+
 }
