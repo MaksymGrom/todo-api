@@ -67,15 +67,10 @@ class TodoController extends Controller
         return $todo->find($todo->id);
     }
 
-    /**
-     * @param TodoModel $todo
-     * @return \Illuminate\Contracts\Routing\ResponseFactory|\Illuminate\Http\Response
-     * @throws \Exception
-     */
     public function destroy(TodoModel $todo)
     {
         $todo->delete();
 
-        return response();
+        return response()->json([]);
     }
 }
