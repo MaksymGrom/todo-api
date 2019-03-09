@@ -9,16 +9,11 @@ use Illuminate\Http\Request;
 class TodoController extends Controller
 {
     /**
-     * @param Request $request
-     * @return LengthAwarePaginator
+     * @return TodoModel[]
      */
-    public function index(Request $request)
+    public function index()
     {
-        $todos = TodoModel::query();
-        if ($request->has('completed')) {
-            $todos->where('completed', $request->get('completed'));
-        }
-        return $todos->paginate();
+        return TodoModel::all();
     }
 
     /**
